@@ -51,6 +51,11 @@ namespace Jitsukawa.PriceChecker
                         colNumber++;
                         rule.End = double.Parse(cols[2].Trim(), CultureInfo.InvariantCulture);
 
+                        if (rule.Start > rule.End)
+                        {
+                            throw new Fail($"O preço mínimo está superior ao preço máximo na linha {rowNumber} do arquivo {_path}.");
+                        }
+
                         colNumber++;
                         rule.Message = cols[3].Trim().Trim('"');
 
