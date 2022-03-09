@@ -2,7 +2,7 @@
 
 Console.WriteLine();
 Console.WriteLine(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-Console.WriteLine(" * PriceChecker v1.0.1                  08/03/2022 *");
+Console.WriteLine(" * PriceChecker v1.0.2                  09/03/2022 *");
 Console.WriteLine(" * http://github.com/paulo-jitsukawa/price-checker *");
 Console.WriteLine(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 Console.WriteLine();

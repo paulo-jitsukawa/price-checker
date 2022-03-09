@@ -20,7 +20,15 @@ namespace Jitsukawa.PriceChecker
 
         internal async Task LoadAcoes()
         {
-            var content = await client.GetStringAsync("https://www.fundamentus.com.br/resultado.php");
+            string? content;
+            try
+            {
+                content = await client.GetStringAsync("https://www.fundamentus.com.br/resultado.php");
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Fail($"Não foi possível obter os dados da fonte. Certifique-se de estar conectado à Internet.", ex);
+            }
 
             var html = new HtmlDocument();
             html.LoadHtml(content);
@@ -45,7 +53,15 @@ namespace Jitsukawa.PriceChecker
 
         internal async Task LoadFIIs()
         {
-            var content = await client.GetStringAsync("https://www.fundamentus.com.br/fii_resultado.php");
+            string? content;
+            try
+            {
+                content = await client.GetStringAsync("https://www.fundamentus.com.br/fii_resultado.php");
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Fail($"Não foi possível obter os dados da fonte. Certifique-se de estar conectado à Internet.", ex);
+            }
 
             var html = new HtmlDocument();
             html.LoadHtml(content);
